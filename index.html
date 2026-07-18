@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8dd">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="なつやすみ">
+  <title>3しまいの なつやすみチャレンジ</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <main class="app">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">3しまいで ちからを あわせよう</p>
+          <h1>🌞 なつやすみチャレンジ</h1>
+          <p class="subtitle">できたカードをタップ。きょうの冒険を進めよう！</p>
+        </div>
+        <div class="date-card" id="dateBox"></div>
+      </div>
+
+      <section class="progress-board" aria-label="3人の進捗">
+        <button class="child-summary hina active" data-child="hinane">
+          <span class="child-name">🌸 ひなね</span>
+          <strong id="hinaneNum">0 / 10</strong>
+          <span class="track"><span class="fill" id="hinaneFill"></span></span>
+        </button>
+        <button class="child-summary oto" data-child="otone">
+          <span class="child-name">🫧 おとね</span>
+          <strong id="otoneNum">0 / 5</strong>
+          <span class="track"><span class="fill" id="otoneFill"></span></span>
+        </button>
+        <button class="child-summary suzu" data-child="suzune">
+          <span class="child-name">👶 すずね</span>
+          <strong id="suzuneNum">0 / 1</strong>
+          <span class="track"><span class="fill" id="suzuneFill"></span></span>
+        </button>
+      </section>
+
+      <div class="family-progress" id="familyBox">
+        👨‍👩‍👧‍👧 かぞくコンプリート <strong>0 / 16</strong>
+      </div>
+    </header>
+
+    <section class="mission-area">
+      <div class="section-head">
+        <div>
+          <p class="small-label">きょうのミッション</p>
+          <h2 id="sectionTitle"></h2>
+        </div>
+        <div class="today-count" id="todayCount">0こ できた</div>
+      </div>
+
+      <div class="mission-grid" id="grid"></div>
+
+      <div class="clear-banner" id="goal" role="status"></div>
+
+      <div class="controls">
+        <button id="reroll" class="primary">🎲 ミッションを えらびなおす</button>
+        <button id="reset" class="ghost">↩ チェックを もどす</button>
+        <button id="soundToggle" class="ghost">🔊 おと ON</button>
+      </div>
+    </section>
+
+    <section class="info-card">
+      <h3>まいにち必ず出るもの</h3>
+      <p><strong>ひなね：</strong>学校の夏休みの宿題・洗濯物を取り入れる・はみがき</p>
+      <p><strong>おとね：</strong>はみがき・おもちゃをかたづける</p>
+      <p><strong>すずね：</strong>その日の成長ミッションが1つ</p>
+    </section>
+
+    <footer>
+      <button id="installHelp" class="link-button">📱 iPadのホーム画面に追加する方法</button>
+      <p>同じiPad・同じブラウザなら、進み具合は自動で保存されます。</p>
+    </footer>
+  </main>
+
+  <dialog id="helpDialog">
+    <form method="dialog">
+      <h2>iPadにアプリみたいに置く</h2>
+      <ol>
+        <li>このページをSafariで開く</li>
+        <li>上部または下部の「共有」ボタンを押す</li>
+        <li>「ホーム画面に追加」を押す</li>
+        <li>右上の「追加」を押す</li>
+      </ol>
+      <button>とじる</button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
