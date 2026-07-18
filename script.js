@@ -2,53 +2,53 @@ const DATA = {
   hinane: {
     label: "🌸 ひなね", goal: 10,
     fixed: [
-      ["📚","学校の夏休みの宿題をする","まいにち"],
-      ["🧺","洗濯物を取り入れる","まいにち"],
-      ["🪥","はみがきをする","まいにち"]
+      ["📚","がっこうの なつやすみの しゅくだいを する","まいにち"],
+      ["🧺","せんたくものを とりいれる","まいにち"],
+      ["🪥","はみがきを する","まいにち"]
     ],
     random: [
-      ["📖","本を10分読む","べんきょう"],["✏️","ひらがなを5もじ書く","べんきょう"],
-      ["🔢","たしざんを5もんとく","べんきょう"],["🧹","へやを5分そうじする","おてつだい"],
-      ["👕","洗濯物をたたむ","おてつだい"],["🍚","ごはんをならべる","おてつだい"],
-      ["🥒","料理のおてつだいをする","おてつだい"],["🧸","おもちゃをかたづける","おてつだい"],
-      ["🌱","花や草に水をあげる","おてつだい"],["🎨","絵を1まいかく","つくる"],
-      ["🧩","パズルをする","あそび"],["🧱","ブロックで何かをつくる","あそび"],
-      ["⚽","ボールで10分あそぶ","からだ"],["🤸","ストレッチをする","からだ"],
-      ["🕺","すきな歌でおどる","からだ"],["🚶","外を15分あるく","おでかけ"],
-      ["🌿","葉っぱを3しゅるい見つける","たんけん"],["🐜","虫を1ぴき見つける","たんけん"],
-      ["☁️","空を見て天気を話す","たんけん"],["💌","だれかにありがとうを言う","やさしいこと"],
-      ["🧡","妹にやさしくする","やさしいこと"],["🎤","歌を1きょく歌う","あそび"],
-      ["🧠","しりとりを10こ続ける","ことば"],["📷","すきなものの写真をとる","あそび"],
-      ["🌙","明日のじゅんびをする","せいかつ"],["🫗","じぶんで水を入れる","せいかつ"]
+      ["📖","ほんを 10ぷん よむ","べんきょう"],["✏️","ひらがなを 5もじ かく","べんきょう"],
+      ["🔢","たしざんを 5もん とく","べんきょう"],["🧹","へやを 5ふん そうじする","おてつだい"],
+      ["👕","せんたくものを たたむ","おてつだい"],["🍚","ごはんを ならべる","おてつだい"],
+      ["🥒","りょうりの おてつだいを する","おてつだい"],["🧸","おもちゃを かたづける","おてつだい"],
+      ["🌱","はなや くさに みずを あげる","おてつだい"],["🎨","えを 1まい かく","つくる"],
+      ["🧩","パズルを する","あそび"],["🧱","ブロックで なにかを つくる","あそび"],
+      ["⚽","ボールで 10ぷん あそぶ","からだ"],["🤸","ストレッチを する","からだ"],
+      ["🕺","すきな うたで おどる","からだ"],["🚶","そとを 15ふん あるく","おでかけ"],
+      ["🌿","はっぱを 3しゅるい みつける","たんけん"],["🐜","むしを 1ぴき みつける","たんけん"],
+      ["☁️","そらを みて てんきを はなす","たんけん"],["💌","だれかに ありがとうを いう","やさしいこと"],
+      ["🧡","いもうとに やさしくする","やさしいこと"],["🎤","うたを 1きょく うたう","あそび"],
+      ["🧠","しりとりを 10こ つづける","ことば"],["📷","すきなものの しゃしんを とる","あそび"],
+      ["🌙","あしたの じゅんびを する","せいかつ"],["🫗","じぶんで みずを いれる","せいかつ"]
     ]
   },
   otone: {
     label: "🫧 おとね", goal: 5,
     fixed: [
-      ["🪥","はみがきをする","まいにち"],
-      ["🧸","おもちゃをかたづける","まいにち"]
+      ["🪥","はみがきを する","まいにち"],
+      ["🧸","おもちゃを かたづける","まいにち"]
     ],
     random: [
-      ["📖","えほんを1さつ見る","ことば"],["🎨","すきないろで絵をかく","つくる"],
-      ["🖍️","ぬりえをする","つくる"],["🧱","ブロックをつむ","あそび"],
-      ["🎵","すきな歌をうたう","あそび"],["💃","歌にあわせておどる","からだ"],
-      ["🐰","うさぎジャンプを5かいする","からだ"],["👏","手を10かいたたく","からだ"],
-      ["🌼","お花を1つ見つける","たんけん"],["🐜","虫を1ぴき見つける","たんけん"],
-      ["🔴","あかいものを3こさがす","たんけん"],["⭕","まるいものを3こさがす","たんけん"],
-      ["🍙","おにぎりをにぎる","りょうり"],["🥄","スプーンをならべる","おてつだい"],
-      ["🌱","みずやりをする","おてつだい"],["💛","おねえちゃんにありがとうを言う","やさしいこと"],
-      ["🤗","かぞくにぎゅっとする","やさしいこと"],["👋","げんきにあいさつする","やさしいこと"],
-      ["⚽","ボールをころがす","からだ"],["🐶","どうぶつのまねをする","あそび"]
+      ["📖","えほんを 1さつ みる","ことば"],["🎨","すきな いろで えを かく","つくる"],
+      ["🖍️","ぬりえを する","つくる"],["🧱","ブロックを つむ","あそび"],
+      ["🎵","すきな うたを うたう","あそび"],["💃","うたに あわせて おどる","からだ"],
+      ["🐰","うさぎジャンプを 5かい する","からだ"],["👏","てを 10かい たたく","からだ"],
+      ["🌼","おはなを 1つ みつける","たんけん"],["🐜","むしを 1ぴき みつける","たんけん"],
+      ["🔴","あかいものを 3こ さがす","たんけん"],["⭕","まるいものを 3こ さがす","たんけん"],
+      ["🍙","おにぎりを にぎる","りょうり"],["🥄","スプーンを ならべる","おてつだい"],
+      ["🌱","みずやりを する","おてつだい"],["💛","おねえちゃんに ありがとうを いう","やさしいこと"],
+      ["🤗","かぞくに ぎゅっとする","やさしいこと"],["👋","げんきに あいさつする","やさしいこと"],
+      ["⚽","ボールを ころがす","からだ"],["🐶","どうぶつの まねを する","あそび"]
     ]
   },
   suzune: {
     label: "👶 すずね", goal: 1, fixed: [],
     random: [
-      ["😊","にこっと笑った！","すずねミッション"],["🦶","足をパタパタした！","すずねミッション"],
-      ["🧸","おもちゃで遊んだ！","すずねミッション"],["👀","おねえちゃんを見た！","すずねミッション"],
-      ["🎵","歌を聞いた！","すずねミッション"],["🙌","手をのばした！","すずねミッション"],
-      ["😴","ぐっすりねた！","すずねミッション"],["🤗","だっこしてもらった！","すずねミッション"],
-      ["🗣️","声を出した！","すずねミッション"],["🍼","ミルクを飲んだ！","すずねミッション"]
+      ["😊","にこっと わらった！","すずねミッション"],["🦶","あしを パタパタした！","すずねミッション"],
+      ["🧸","おもちゃで あそんだ！","すずねミッション"],["👀","おねえちゃんを みた！","すずねミッション"],
+      ["🎵","うたを きいた！","すずねミッション"],["🙌","てを のばした！","すずねミッション"],
+      ["😴","ぐっすり ねた！","すずねミッション"],["🤗","だっこして もらった！","すずねミッション"],
+      ["🗣️","こえを だした！","すずねミッション"],["🍼","ミルクを のんだ！","すずねミッション"]
     ]
   }
 };
@@ -92,7 +92,6 @@ function getDone(child){
 function saveDone(child,set){
   localStorage.setItem(doneKey(child),JSON.stringify([...set]));
 }
-
 function beep(type="tap"){
   if(!soundOn) return;
   try{
@@ -110,22 +109,18 @@ function beep(type="tap"){
     osc.stop(ctx.currentTime+(type==="clear"?.45:.14));
   }catch(e){}
 }
-
-function progressFor(child){
-  return Math.min(getDone(child).size,DATA[child].goal);
-}
+function progressFor(child){ return Math.min(getDone(child).size,DATA[child].goal); }
 function updateProgress(){
   let total=0;
   for(const child of ["hinane","otone","suzune"]){
-    const value=progressFor(child);
-    const goal=DATA[child].goal;
+    const value=progressFor(child), goal=DATA[child].goal;
     total+=value;
     $(`${child}Num`).textContent=`${value} / ${goal}`;
     $(`${child}Fill`).style.width=`${value/goal*100}%`;
   }
   $("familyBox").innerHTML=`👨‍👩‍👧‍👧 かぞくコンプリート <strong>${total} / 16</strong>`;
   if(total===16){
-    $("familyBox").innerHTML="🎆 かぞくコンプリート！ みんなクリア！";
+    $("familyBox").innerHTML="🎆 かぞくコンプリート！ みんな クリア！";
     if(!familyCelebrated){
       familyCelebrated=true;
       localStorage.setItem(`familyCelebrated_${dateKey}`,"yes");
@@ -139,8 +134,7 @@ function render(){
     btn.classList.toggle("active",btn.dataset.child===current);
   });
   $("sectionTitle").textContent=`${DATA[current].label}の ミッション`;
-  const tasks=getTasks(current);
-  const done=getDone(current);
+  const tasks=getTasks(current), done=getDone(current);
   $("todayCount").textContent=`${done.size}こ できた`;
 
   const grid=$("grid");
@@ -169,8 +163,8 @@ function render(){
   const clear=done.size>=DATA[current].goal;
   $("goal").className=`clear-banner${clear?" show":""}`;
   $("goal").textContent=current==="suzune"
-    ?"👶 すずねミッションクリア！ きょうもすくすく！"
-    :`${DATA[current].label} きょうのミッションクリア！`;
+    ?"👶 すずねミッション クリア！ きょうも すくすく！"
+    :`${DATA[current].label} きょうの ミッション クリア！`;
   updateProgress();
 }
 document.querySelectorAll(".child-summary").forEach(btn=>{
@@ -181,7 +175,7 @@ document.querySelectorAll(".child-summary").forEach(btn=>{
   });
 });
 $("reroll").addEventListener("click",()=>{
-  if(confirm("この子のきょうのミッションを選びなおしますか？")){
+  if(confirm("このこの きょうの ミッションを えらびなおしますか？")){
     localStorage.setItem(taskKey(current),JSON.stringify(createTasks(current)));
     localStorage.removeItem(doneKey(current));
     localStorage.removeItem(`familyCelebrated_${dateKey}`);
@@ -190,7 +184,7 @@ $("reroll").addEventListener("click",()=>{
   }
 });
 $("reset").addEventListener("click",()=>{
-  if(confirm("この子のチェックを全部もどしますか？")){
+  if(confirm("このこの チェックを ぜんぶ もどしますか？")){
     localStorage.removeItem(doneKey(current));
     localStorage.removeItem(`familyCelebrated_${dateKey}`);
     familyCelebrated=false;
@@ -204,20 +198,15 @@ $("soundToggle").addEventListener("click",()=>{
   if(soundOn) beep();
 });
 $("soundToggle").textContent=soundOn?"🔊 おと ON":"🔇 おと OFF";
-
 $("installHelp").addEventListener("click",()=>$("helpDialog").showModal());
 
 function confettiBurst(){
-  const canvas=$("confetti");
-  const ctx=canvas.getContext("2d");
-  const dpr=window.devicePixelRatio||1;
-  canvas.width=innerWidth*dpr; canvas.height=innerHeight*dpr;
-  ctx.scale(dpr,dpr);
+  const canvas=$("confetti"), ctx=canvas.getContext("2d"), dpr=window.devicePixelRatio||1;
+  canvas.width=innerWidth*dpr; canvas.height=innerHeight*dpr; ctx.scale(dpr,dpr);
   const bits=Array.from({length:150},()=>({
-    x:innerWidth/2,y:innerHeight*.25,
-    vx:(Math.random()-.5)*13,vy:Math.random()*-10-4,
-    g:.24+Math.random()*.12,r:4+Math.random()*5,
-    rot:Math.random()*Math.PI,color:["#ff8068","#55a8e8","#ffd768","#67c77a","#b487e8"][Math.floor(Math.random()*5)]
+    x:innerWidth/2,y:innerHeight*.25,vx:(Math.random()-.5)*13,vy:Math.random()*-10-4,
+    g:.24+Math.random()*.12,r:4+Math.random()*5,rot:Math.random()*Math.PI,
+    color:["#ff8068","#55a8e8","#ffd768","#67c77a","#b487e8"][Math.floor(Math.random()*5)]
   }));
   let frame=0;
   function draw(){
@@ -232,7 +221,6 @@ function confettiBurst(){
   }
   draw();
 }
-
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js"));
 }
