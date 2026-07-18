@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>3しまいの なつやすみチャレンジ</title>
+<style>
+:root{
+  --bg:#f7fbff; --card:#fff; --ink:#2f3542; --muted:#6b7280;
+  --line:#dbe6f2; --green:#69c779; --yellow:#ffd86b;
+  --hina:#ff7f66; --oto:#56a9e9; --suzu:#b586e8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:"Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%,#fff3bd 0 10%,transparent 27%),
+    radial-gradient(circle at 96% 8%,#dff3ff 0 13%,transparent 30%),
+    var(--bg);
+  -webkit-tap-highlight-color:transparent;
+}
+.app{max-width:1050px;margin:auto;padding:18px 15px 48px}
+header{
+  background:rgba(255,255,255,.94);border:2px solid var(--line);
+  border-radius:25px;padding:16px;box-shadow:0 10px 26px rgba(56,84,112,.1)
+}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+h1{margin:0;color:#f05d3b;font-size:clamp(27px,5vw,46px);line-height:1.15}
+.sub{margin-top:6px;color:var(--muted);font-weight:700}
+.date{
+  flex:0 0 auto;background:#fff7df;border:2px solid #ffd66b;
+  border-radius:16px;padding:9px 13px;font-weight:900;text-align:center
+}
+.allProgress{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px
+}
+.pcard{
+  background:white;border:2px solid var(--line);border-radius:18px;
+  padding:11px;cursor:pointer
+}
+.pcard.active{box-shadow:0 0 0 3px rgba(255,255,255,.7),0 0 0 6px currentColor}
+.pcard.hina{color:var(--hina)} .pcard.oto{color:var(--oto)} .pcard.suzu{color:var(--suzu)}
+.pname{font-size:18px;font-weight:950}
+.pnum{font-size:24px;font-weight:950;margin-top:4px}
+.track{height:11px;background:#edf1f6;border-radius:999px;overflow:hidden;margin-top:7px}
+.fill{height:100%;background:currentColor;width:0;transition:.25s}
+.family{
+  margin-top:13px;padding:12px 14px;border-radius:17px;
+  background:#fff8d6;border:2px solid #f2d35d;font-weight:950;text-align:center
+}
+.sectionTitle{
+  margin:17px 2px 10px;font-size:22px;font-weight:950
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{
+  position:relative;background:var(--card);border:2px solid var(--line);
+  border-radius:22px;padding:14px;min-height:145px;
+  display:grid;grid-template-columns:72px 1fr;gap:13px;align-items:center;
+  box-shadow:0 6px 16px rgba(56,84,112,.08);cursor:pointer;
+  transition:transform .12s,background .2s,border-color .2s
+}
+.card:active{transform:scale(.985)}
+.card.done{background:#effbf1;border-color:#70ca82}
+.icon{
+  width:70px;height:70px;border-radius:20px;background:#f4f8fc;
+  border:1px solid #e2ebf4;display:grid;place-items:center;font-size:43px
+}
+.kind{font-size:13px;color:var(--muted);font-weight:800}
+.text{font-size:21px;line-height:1.35;font-weight:950;margin-top:3px}
+.check{
+  position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;
+  border:2px solid #bcc9d8;background:#fff;display:grid;place-items:center;
+  font-size:20px;font-weight:950
+}
+.card.done .check{background:var(--green);border-color:var(--green);color:white}
+.goal{
+  display:none;margin-top:18px;padding:18px;text-align:center;border-radius:22px;
+  background:linear-gradient(135deg,#fff2b4,#ffe0e0);border:2px solid #ffbd67;
+  font-size:25px;font-weight:950;animation:pop .3s ease
+}
+.goal.show{display:block}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button{
+  border:0;border-radius:14px;padding:12px 16px;font-size:16px;font-weight:900;
+  background:#e7f2ff;color:#245f99;cursor:pointer
+}
+button.secondary{background:#f1f3f6;color:#596273}
+.note{margin-top:13px;color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:700px){
+  .allProgress{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .card{min-height:126px;grid-template-columns:62px 1fr}
+  .icon{width:60px;height:60px;font-size:38px}
+  .text{font-size:19px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="top">
+    <div>
+      <h1>🌞 3しまいの なつやすみチャレンジ</h1>
+      <div class="sub">できたらカードをタップ！ まいにち内容がかわるよ。</div>
+    </div>
+    <div class="date" id="dateBox"></div>
+  </div>
+
+  <div class="allProgress">
+    <div class="pcard hina" data-child="hinane">
+      <div class="pname">🌸 ひなね</div>
+      <div class="pnum" id="hinaneNum">0 / 10</div>
+      <div class="track"><div class="fill" id="hinaneFill"></div></div>
+    </div>
+    <div class="pcard oto" data-child="otone">
+      <div class="pname">🫧 おとね</div>
+      <div class="pnum" id="otoneNum">0 / 5</div>
+      <div class="track"><div class="fill" id="otoneFill"></div></div>
+    </div>
+    <div class="pcard suzu" data-child="suzune">
+      <div class="pname">👶 すずね</div>
+      <div class="pnum" id="suzuneNum">0 / 1</div>
+      <div class="track"><div class="fill" id="suzuneFill"></div></div>
+    </div>
+  </div>
+
+  <div class="family" id="familyBox">👨‍👩‍👧‍👧 かぞくコンプリート　0 / 16</div>
+</header>
+
+<div class="sectionTitle" id="sectionTitle"></div>
+<div class="grid" id="grid"></div>
+<div class="goal" id="goal"></div>
+
+<div class="actions">
+  <button id="reroll">🎲 きょうのミッションを えらびなおす</button>
+  <button class="secondary" id="reset">↩ チェックを もどす</button>
+</div>
+<div class="note">
+  ひなねは「学校の夏休みの宿題」「洗濯物を取り入れる」「はみがき」が毎日必ず入ります。<br>
+  それ以外は、その日ごとにランダムで選ばれます。進み具合は端末に保存されます。
+</div>
+</div>
+
+<script>
+const today=new Date();
+const dateKey=`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
+document.getElementById("dateBox").innerHTML=`${today.getMonth()+1}がつ<br>${today.getDate()}にち`;
+
+const data={
+ hinane:{
+   label:"🌸 ひなね", goal:10,
+   fixed:[
+     ["📚","学校の夏休みの宿題をする","まいにち"],
+     ["🧺","洗濯物を取り入れる","まいにち"],
+     ["🪥","はみがきをする","まいにち"]
+   ],
+   random:[
+     ["📖","本を10分読む","べんきょう"],["✏️","ひらがなを5もじ書く","べんきょう"],
+     ["🔢","たしざんを5もんとく","べんきょう"],["🧹","へやを5分そうじする","おてつだい"],
+     ["👕","洗濯物をたたむ","おてつだい"],["🍚","ごはんをならべる","おてつだい"],
+     ["🥒","料理のおてつだいをする","おてつだい"],["🧸","おもちゃをかたづける","おてつだい"],
+     ["🌱","花や草に水をあげる","おてつだい"],["🎨","絵を1まいかく","つくる"],
+     ["🧩","パズルをする","あそび"],["🧱","ブロックで何かをつくる","あそび"],
+     ["⚽","ボールで10分あそぶ","からだ"],["🤸","ストレッチをする","からだ"],
+     ["🕺","すきな歌でおどる","からだ"],["🚶","外を15分あるく","おでかけ"],
+     ["🌿","葉っぱを3しゅるい見つける","たんけん"],["🐜","虫を1ぴき見つける","たんけん"],
+     ["☁️","空を見て天気を話す","たんけん"],["💌","だれかにありがとうを言う","やさしいこと"],
+     ["🧡","妹にやさしくする","やさしいこと"],["🎤","歌を1きょく歌う","あそび"],
+     ["🧠","しりとりを10こ続ける","ことば"],["📷","すきなものの写真をとる","あそび"],
+     ["🌙","明日のじゅんびをする","せいかつ"]
+   ]
+ },
+ otone:{
+   label:"🫧 おとね", goal:5,
+   fixed:[
+     ["🪥","はみがきをする","まいにち"],
+     ["🧸","おもちゃをかたづける","まいにち"]
+   ],
+   random:[
+     ["📖","えほんを1さつ見る","ことば"],["🎨","すきないろで絵をかく","つくる"],
+     ["🖍️","ぬりえをする","つくる"],["🧱","ブロックをつむ","あそび"],
+     ["🎵","すきな歌をうたう","あそび"],["💃","歌にあわせておどる","からだ"],
+     ["🐰","うさぎジャンプを5かいする","からだ"],["👏","手を10かいたたく","からだ"],
+     ["🌼","お花を1つ見つける","たんけん"],["🐜","虫を1ぴき見つける","たんけん"],
+     ["🔴","あかいものを3こさがす","たんけん"],["⭕","まるいものを3こさがす","たんけん"],
+     ["🍙","おにぎりをにぎる","りょうり"],["🥄","スプーンをならべる","おてつだい"],
+     ["🌱","みずやりをする","おてつだい"],["💛","おねえちゃんにありがとうを言う","やさしいこと"],
+     ["🤗","かぞくにぎゅっとする","やさしいこと"],["👋","げんきにあいさつする","やさしいこと"],
+     ["⚽","ボールをころがす","からだ"],["🐶","どうぶつのまねをする","あそび"]
+   ]
+ },
+ suzune:{
+   label:"👶 すずね", goal:1,
+   fixed:[],
+   random:[
+     ["😊","にこっと笑った！","すずねミッション"],
+     ["🦶","足をパタパタした！","すずねミッション"],
+     ["🧸","おもちゃで遊んだ！","すずねミッション"],
+     ["👀","おねえちゃんを見た！","すずねミッション"],
+     ["🎵","歌を聞いた！","すずねミッション"],
+     ["🙌","手をのばした！","すずねミッション"],
+     ["😴","ぐっすりねた！","すずねミッション"],
+     ["🤗","だっこしてもらった！","すずねミッション"],
+     ["🗣️","声を出した！","すずねミッション"],
+     ["🍼","ミルクを飲んだ！","すずねミッション"]
+   ]
+ }
+};
+
+let current=localStorage.getItem("familyCurrentChild")||"hinane";
+const $=id=>document.getElementById(id);
+const taskKey=c=>`familyTasks_${c}_${dateKey}`;
+const doneKey=c=>`familyDone_${c}_${dateKey}`;
+
+function shuffled(arr){
+ const a=[...arr];
+ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+ return a;
+}
+function createTasks(c){
+ const d=data[c];
+ const need=d.goal-d.fixed.length;
+ const chosen=shuffled(d.random).slice(0,need);
+ return [...d.fixed,...chosen].map((x,i)=>({id:i,emoji:x[0],text:x[1],kind:x[2]}));
+}
+function getTasks(c){
+ const s=localStorage.getItem(taskKey(c));
+ if(s)return JSON.parse(s);
+ const t=createTasks(c);
+ localStorage.setItem(taskKey(c),JSON.stringify(t));
+ return t;
+}
+function getDone(c){return new Set(JSON.parse(localStorage.getItem(doneKey(c))||"[]"))}
+function saveDone(c,set){localStorage.setItem(doneKey(c),JSON.stringify([...set]))}
+
+function updateProgress(){
+ let total=0;
+ for(const c of ["hinane","otone","suzune"]){
+   const n=getDone(c).size, goal=data[c].goal;
+   total+=Math.min(n,goal);
+   $(c+"Num").textContent=`${Math.min(n,goal)} / ${goal}`;
+   $(c+"Fill").style.width=`${Math.min(n/goal*100,100)}%`;
+ }
+ $("familyBox").textContent=`👨‍👩‍👧‍👧 かぞくコンプリート　${total} / 16`;
+ if(total===16)$("familyBox").textContent="🎆 かぞくコンプリート！ みんなクリア！";
+}
+function render(){
+ document.querySelectorAll(".pcard").forEach(x=>x.classList.toggle("active",x.dataset.child===current));
+ $("sectionTitle").textContent=`${data[current].label}の きょうのミッション`;
+ const tasks=getTasks(current),done=getDone(current),grid=$("grid");
+ grid.innerHTML="";
+ tasks.forEach(task=>{
+   const card=document.createElement("div");
+   card.className="card"+(done.has(task.id)?" done":"");
+   card.innerHTML=`
+     <div class="icon">${task.emoji}</div>
+     <div><div class="kind">${task.kind}</div><div class="text">${task.text}</div></div>
+     <div class="check">${done.has(task.id)?"✓":""}</div>`;
+   card.onclick=()=>{
+     if(done.has(task.id))done.delete(task.id);else done.add(task.id);
+     saveDone(current,done);render();
+   };
+   grid.appendChild(card);
+ });
+ const clear=done.size>=data[current].goal;
+ $("goal").className="goal"+(clear?" show":"");
+ $("goal").textContent=current==="suzune"?"👶 すずねミッションクリア！":
+   `${data[current].label} きょうのミッションクリア！`;
+ updateProgress();
+}
+document.querySelectorAll(".pcard").forEach(x=>{
+ x.onclick=()=>{current=x.dataset.child;localStorage.setItem("familyCurrentChild",current);render()}
+});
+$("reroll").onclick=()=>{
+ if(confirm("きょうのミッションを えらびなおす？")){
+   localStorage.setItem(taskKey(current),JSON.stringify(createTasks(current)));
+   localStorage.removeItem(doneKey(current));
+   render();
+ }
+};
+$("reset").onclick=()=>{
+ if(confirm("この子のチェックを ぜんぶもどす？")){
+   localStorage.removeItem(doneKey(current));render();
+ }
+};
+render();
+</script>
+</body>
+</html>
