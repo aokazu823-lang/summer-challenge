@@ -1,7 +1,9 @@
-GitHubのリポジトリで Add file → Upload files をひらき、
-このフォルダのファイルをぜんぶアップロードしてください。
+1. ZIPを かいとう
+2. GitHubの summer-challenge を ひらく
+3. Add file → Upload files
+4. なかのファイルを ぜんぶ アップロード
+5. Commit changes
+6. 1〜3ぷん まって Safariを こうしん
 
-おなじ名前のファイルは上書きされます。
-アップロード後に Commit changes をおしてください。
-
-iPadで古い表示が残るときは、Safariでページをひらいて更新してください。
+パパ・ママモードの あいことば：823
+きろくは おなじiPad・おなじブラウザに ほぞんされます。

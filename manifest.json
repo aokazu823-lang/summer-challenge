@@ -3,8 +3,8 @@
   "short_name": "なつやすみ",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6fbff",
-  "theme_color": "#fff8dd",
+  "background_color": "#fffaf1",
+  "theme_color": "#fff3c9",
   "icons": [
     {
       "src": "icon-192.png",
