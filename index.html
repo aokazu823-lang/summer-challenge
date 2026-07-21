@@ -1,104 +1,185 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff3c9">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>3しまいの なつやすみチャレンジ</title>
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<style>
-:root{--ink:#3d3934;--muted:#756f67;--line:#eadfce;--shadow:0 9px 25px #4f3d2018;--hina:#ffe1ea;--oto:#dff5ff;--suzu:#e7f8df;--done:#dff6df}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;color:var(--ink);background:linear-gradient(#fff7d8,#fffaf4 42%,#f4fbff)}
-button,input,select{font:inherit}button{cursor:pointer}#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99}
-header{padding:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#ffffffcf;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
-h1{margin:3px 0;font-size:clamp(24px,4vw,39px)}h2,h3{margin-top:0}.tiny{font-size:13px;color:var(--muted);font-weight:800}.parent{border:0;border-radius:15px;background:#44403a;color:#fff;padding:12px 15px;font-weight:900}
-main{max-width:1050px;margin:auto;padding:18px}.family{background:#fff;border-radius:20px;padding:17px;box-shadow:var(--shadow);margin-bottom:15px}.familytop{display:flex;justify-content:space-between;gap:12px;align-items:center}.family strong{font-size:24px}.bar{height:15px;background:#eee5d8;border-radius:999px;overflow:hidden;margin-top:12px}.fill{height:100%;background:linear-gradient(90deg,#ff9eae,#79c4ef,#8fd27c);width:0;transition:.3s}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:15px 0}.tab{border:2px solid transparent;background:#fff;border-radius:17px;padding:13px 7px;box-shadow:var(--shadow);font-weight:900}.tab.active{border-color:#555;transform:translateY(-2px)}
-.titlebar{display:flex;justify-content:space-between;align-items:center;gap:12px}.badge{background:#fff;padding:10px 14px;border-radius:15px;font-weight:900;box-shadow:var(--shadow)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mission{display:grid;grid-template-columns:52px 1fr 34px;gap:12px;align-items:center;min-height:96px;border:2px solid transparent;border-radius:20px;padding:15px;background:#fff;text-align:left;box-shadow:var(--shadow)}.mission .e{font-size:34px}.kind{display:block;font-size:12px;color:var(--muted);font-weight:800;margin-bottom:4px}.txt{font-size:18px;font-weight:900;line-height:1.35}.check{width:31px;height:31px;border:3px solid #d3c8b8;border-radius:50%;display:grid;place-items:center;font-weight:900}.mission.done{background:var(--done);border-color:#68b96c}.mission.done .txt{text-decoration:line-through}.mission.done .check{background:#68b96c;color:#fff;border-color:#68b96c}
-.box,.detail,.psec{margin-top:18px;padding:17px;border-radius:19px;background:#fff;box-shadow:var(--shadow)}.bonus{border:3px dashed #e6af42}.award{background:linear-gradient(135deg,#fff8ca,#ffe5a0)}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.row:first-child{border-top:0}.small{border:0;border-radius:11px;padding:8px 10px;font-weight:800}.small.done{background:#69c36e;color:#fff}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.soft{border:0;background:#fff;border-radius:13px;padding:11px 14px;box-shadow:var(--shadow);font-weight:800}.hidden{display:none!important}
-.calhead{display:flex;justify-content:center;align-items:center;gap:16px}.calhead button{border:0;background:#fff;border-radius:11px;padding:9px 13px;box-shadow:var(--shadow)}.week,.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.week span{text-align:center;font-size:12px;font-weight:800;color:var(--muted);padding:8px}.day{min-height:76px;border:0;border-radius:14px;background:#fff;box-shadow:0 5px 13px #4f3d2015;padding:8px;display:flex;flex-direction:column;align-items:flex-start}.day.blank{visibility:hidden}.day.today{outline:3px solid #74aef0}.day.full{background:#fff2a9}.day.some{background:#edf8ff}.marks{margin-top:auto}
-dialog{border:0;border-radius:22px;width:min(680px,calc(100% - 22px));max-height:92vh;padding:0;box-shadow:0 20px 70px #0005}dialog::backdrop{background:#251f1a99}.dialog{position:relative;padding:22px;overflow:auto;max-height:92vh}.close{position:absolute;right:13px;top:13px;border:0;border-radius:50%;width:37px;height:37px}.dialog input,.dialog select{width:100%;padding:12px;border:2px solid #ddd2c2;border-radius:12px;margin-top:5px}.dialog label{display:block;font-weight:800;margin:11px 0}.primary{width:100%;border:0;border-radius:13px;padding:12px;font-weight:900;background:#397ae6;color:#fff}.psec{box-shadow:none;border:1px solid var(--line)}
-@media(max-width:700px){header{align-items:center}.parent{font-size:13px;padding:10px}.tabs{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.mission .txt{font-size:17px}.familytop{align-items:flex-start}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff6cf">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>3しまいの なつやすみチャレンジ</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <canvas id="confetti"></canvas>
-<header><div><div class="tiny">3しまいで ちからを あわせよう</div><h1>🌞 なつやすみチャレンジ</h1><div id="todayText"></div></div><button class="parent" id="parentOpen">🔒 パパ・ママ</button></header>
+
+<header>
+  <div>
+    <div class="tiny">3しまいで ちからを あわせよう</div>
+    <h1>🌞 なつやすみチャレンジ</h1>
+    <div id="todayText"></div>
+  </div>
+  <button class="parent" id="parentOpen">🔒 パパ・ママ</button>
+</header>
+
 <main>
-<section class="family"><div class="familytop"><div><div class="tiny">きょうの かぞくミッション</div><strong>みんなで 20こ！</strong></div><strong id="familyCount">0 / 20</strong></div><div class="bar"><div class="fill" id="familyFill"></div></div></section>
-<section class="tabs">
-<button class="tab active" data-child="hinane">🌸 ひなね <span id="th">0/10</span></button>
-<button class="tab" data-child="otone">🫧 おとね <span id="to">0/6</span></button>
-<button class="tab" data-child="suzune">👶 すずね <span id="ts">0/4</span></button>
-<button class="tab" id="calTab">📅 カレンダー</button>
-</section>
-<section id="missionView">
-<div class="titlebar"><div><div class="tiny">きょうの ミッション</div><h2 id="childTitle"></h2></div><div class="badge" id="badge"></div></div>
-<div class="grid" id="missions"></div>
-<section class="box bonus hidden" id="bonusBox"><h3>🌟 パパ・ママからの ミッション</h3><div id="bonusList"></div></section>
-<section class="box award hidden" id="awardBox"><h3>🏅 きょうの とくべつしょう</h3><div id="awardList"></div></section>
-<div class="actions"><button class="soft" id="reroll">🎲 えらびなおす</button><button class="soft" id="reset">↩ チェックを もどす</button></div>
-</section>
-<section id="calendarView" class="hidden">
-<div class="calhead"><button id="prev">◀</button><h2 id="monthTitle"></h2><button id="next">▶</button></div>
-<div class="week"><span>にち</span><span>げつ</span><span>か</span><span>すい</span><span>もく</span><span>きん</span><span>ど</span></div><div class="cal" id="calendar"></div><div class="detail" id="detail">ひづけを おすと、きろくが みられます。</div>
-</section>
+  <section class="family-card">
+    <div class="family-top">
+      <div>
+        <div class="tiny">きょうの かぞくミッション</div>
+        <strong>みんなで 20こ！</strong>
+      </div>
+      <strong id="familyCount">0 / 20</strong>
+    </div>
+    <div class="bar"><div class="fill" id="familyFill"></div></div>
+  </section>
+
+  <section class="wallets">
+    <div class="wallet hinane-wallet">🩵 ひなねのおさいふ <strong id="walletHinane">0えん</strong></div>
+    <div class="wallet otone-wallet">🩷 おとねのおさいふ <strong id="walletOtone">0えん</strong></div>
+  </section>
+
+  <section class="tabs">
+    <button class="tab active" data-child="hinane">🩵 ひなね <span id="th">0/10</span></button>
+    <button class="tab" data-child="otone">🩷 おとね <span id="to">0/6</span></button>
+    <button class="tab" data-child="suzune">💛 すずね <span id="ts">0/4</span></button>
+    <button class="tab" id="calendarTab">📅 カレンダー</button>
+    <button class="tab" id="stampTab">🏅 スタンプ</button>
+  </section>
+
+  <section id="missionView">
+    <div class="titlebar">
+      <div>
+        <div class="tiny">きょうの ミッション</div>
+        <h2 id="childTitle"></h2>
+      </div>
+      <div class="badge" id="badge"></div>
+    </div>
+
+    <div class="grid" id="missions"></div>
+
+    <section class="box sister-box">
+      <h3>🤝 きょうの なかよしミッション</h3>
+      <div id="sisterMission"></div>
+    </section>
+
+    <section class="box hidden" id="bonusBox">
+      <h3>🌟 パパ・ママからの ミッション</h3>
+      <div id="bonusList"></div>
+    </section>
+
+    <section class="box hidden" id="awardBox">
+      <h3>🏅 きょうの とくべつしょう</h3>
+      <div id="awardList"></div>
+    </section>
+
+    <div class="actions">
+      <button class="soft" id="reroll">🎲 えらびなおす</button>
+      <button class="soft" id="resetChecks">↩ チェックを もどす</button>
+    </div>
+  </section>
+
+  <section id="calendarView" class="hidden">
+    <div class="calhead">
+      <button id="prevMonth">◀</button>
+      <h2 id="monthTitle"></h2>
+      <button id="nextMonth">▶</button>
+    </div>
+    <div class="week"><span>にち</span><span>げつ</span><span>か</span><span>すい</span><span>もく</span><span>きん</span><span>ど</span></div>
+    <div class="calendar" id="calendar"></div>
+    <div class="detail" id="calendarDetail">ひづけを おすと、きろくが みられます。</div>
+  </section>
+
+  <section id="stampView" class="hidden">
+    <div class="titlebar">
+      <div><div class="tiny">あつめた スタンプ</div><h2>🏅 スタンプずかん</h2></div>
+      <div class="badge" id="stampCount">0 / 20</div>
+    </div>
+    <div class="stamp-grid" id="stampGrid"></div>
+  </section>
 </main>
-<dialog id="parentDialog"><form method="dialog" class="dialog"><button class="close" value="cancel">✕</button>
-<div id="login"><h2>🔒 パパ・ママモード</h2><input id="pin" type="password" inputmode="numeric" maxlength="6" placeholder="あいことば"><button type="button" class="primary" id="loginBtn">はいる</button><p id="pinError"></p></div>
-<div id="parentPane" class="hidden">
-<h2>👨‍👩‍👧 パパ・ママモード</h2>
-<section class="psec"><h3>🌟 きょうだけの ミッション</h3><label>だれに？<select id="bonusChild"><option value="hinane">ひなね</option><option value="otone">おとね</option><option value="suzune">すずね</option></select></label><label>ミッション<input id="bonusText" placeholder="れい：くつを そろえる"></label><button type="button" class="primary" id="addBonus">ミッションを だす</button></section>
-<section class="psec"><h3>🏅 とくべつしょう</h3><label>だれに？<select id="awardChild"><option value="hinane">ひなね</option><option value="otone">おとね</option><option value="suzune">すずね</option></select></label><label>しょう<select id="awardText"><option>やさしく できたで しょう</option><option>おてつだいを がんばったで しょう</option><option>あきらめずに がんばったで しょう</option><option>にこにこ できたで しょう</option></select></label><button type="button" class="primary" id="addAward">しょうを おくる</button></section>
-<section class="psec"><h3>📒 きょうの きろく</h3><div id="summary"></div></section>
-</div></form></dialog>
-<script>
-const PIN="823";
-const C={
-hinane:{name:"ひなね",emoji:"🌸",goal:10,fixed:[["📚","がっこうの なつやすみの しゅくだいを する","まいにち"],["🧺","せんたくものを とりいれる","まいにち"],["🪥","はみがきを する","まいにち"]],random:[["📖","ほんを 10ぷん よむ","べんきょう"],["✏️","ひらがなを 5もじ かく","べんきょう"],["🔢","たしざんを 5もん とく","べんきょう"],["🧹","へやを 5ふん そうじする","おてつだい"],["👕","せんたくものを たたむ","おてつだい"],["🍚","ごはんを ならべる","おてつだい"],["🧸","おもちゃを かたづける","おてつだい"],["🎨","えを 1まい かく","つくる"],["🤸","ストレッチを する","からだ"],["🕺","すきな うたで おどる","からだ"],["🌿","はっぱを 3しゅるい みつける","たんけん"],["💌","だれかに ありがとうを いう","やさしいこと"],["🌙","あしたの じゅんびを する","せいかつ"]]},
-otone:{name:"おとね",emoji:"🫧",goal:6,fixed:[["🪥","はみがきを する","まいにち"],["🧸","おもちゃを かたづける","まいにち"]],random:[["📖","えほんを 1さつ みる","ことば"],["🎨","すきな いろで えを かく","つくる"],["🖍️","ぬりえを する","つくる"],["🎵","すきな うたを うたう","あそび"],["💃","うたに あわせて おどる","からだ"],["🐰","うさぎジャンプを 5かい する","からだ"],["🌼","おはなを 1つ みつける","たんけん"],["🔴","あかいものを 3こ さがす","たんけん"],["🥄","スプーンを ならべる","おてつだい"],["🌱","みずやりを する","おてつだい"],["🤗","かぞくに ぎゅっとする","やさしいこと"],["👋","げんきに あいさつする","やさしいこと"]]},
-suzune:{name:"すずね",emoji:"👶",goal:4,fixed:[],random:[["😭","ないたよ！","すずね"],["😊","わらったよ！","すずね"],["🧸","おもちゃで あそんだよ！","すずね"],["🍼","ミルクを のんだよ！","すずね"],["🍚","ごはんを たべたよ！","すずね"],["😴","おひるね したよ！","すずね"],["👏","おててを ぱちぱち したよ！","すずね"],["👋","ばいばい したよ！","すずね"],["🗣️","こえを だしたよ！","すずね"],["🧍","つかまりだちを したよ！","すずね"]]}
-};
-const $=id=>document.getElementById(id),pad=n=>String(n).padStart(2,"0"),today=new Date(),dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`,TK=dateKey(today);
-let current=localStorage.getItem("sc_current_child")||"hinane",cursor=new Date(today.getFullYear(),today.getMonth(),1);
-const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f}catch{return f}},write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-const shuffle=a=>{let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
-const taskKey=(c,d=TK)=>`sc21_tasks_${d}_${c}`,doneKey=(c,d=TK)=>`sc21_done_${d}_${c}`,bonusKey=(d=TK)=>`sc21_bonus_${d}`,awardKey=(d=TK)=>`sc21_awards_${d}`;
-function makeTasks(c){let q=C[c],n=q.goal-q.fixed.length;return [...q.fixed,...shuffle(q.random).slice(0,n)].map((x,i)=>({id:`t${i}`,emoji:x[0],text:x[1],kind:x[2]}))}
-function tasks(c,d=TK){let x=read(taskKey(c,d),null);if(!x&&d===TK){x=makeTasks(c);write(taskKey(c,d),x)}return x||[]}
-function dones(c,d=TK){return new Set(read(doneKey(c,d),[]))}function setDones(c,s,d=TK){write(doneKey(c,d),[...s])}
-function bonus(d=TK){return read(bonusKey(d),[])}function awards(d=TK){return read(awardKey(d),[])}function prog(c,d=TK){return dones(c,d).size}
-function total(d=TK){return prog("hinane",d)+prog("otone",d)+prog("suzune",d)}
-function saveHistory(){let h=read("sc21_history",{});h[TK]={};for(const c of Object.keys(C))h[TK][c]={done:prog(c),goal:C[c].goal,tasks:tasks(c),doneIds:[...dones(c)]};h[TK].bonus=bonus();h[TK].awards=awards();write("sc21_history",h)}
-function render(){
-$("todayText").textContent=`${today.getMonth()+1}がつ ${today.getDate()}にち`;
-$("th").textContent=`${prog("hinane")}/10`;$("to").textContent=`${prog("otone")}/6`;$("ts").textContent=`${prog("suzune")}/4`;
-let t=total();$("familyCount").textContent=`${t} / 20`;$("familyFill").style.width=`${Math.min(100,t/20*100)}%`;
-document.querySelectorAll(".tab[data-child]").forEach(b=>b.classList.toggle("active",b.dataset.child===current));
-$("childTitle").textContent=`${C[current].emoji} ${C[current].name}の ミッション`;$("badge").textContent=`${prog(current)} / ${C[current].goal}`;
-let d=dones(current);$("missions").innerHTML="";
-tasks(current).forEach(x=>{let b=document.createElement("button");b.className=`mission ${d.has(x.id)?"done":""}`;b.innerHTML=`<span class="e">${x.emoji}</span><span><span class="kind">${x.kind}</span><span class="txt">${x.text}</span></span><span class="check">${d.has(x.id)?"✓":""}</span>`;b.onclick=()=>{let s=dones(current),before=total();s.has(x.id)?s.delete(x.id):s.add(x.id);setDones(current,s);saveHistory();if(before<20&&total()===20)burst();render()};$("missions").appendChild(b)});
-let bb=bonus().filter(x=>x.child===current);$("bonusBox").classList.toggle("hidden",!bb.length);$("bonusList").innerHTML="";bb.forEach(x=>{let r=document.createElement("div");r.className="row";r.innerHTML=`<strong>${x.done?"✅":"🌟"} ${x.text}</strong>`;let b=document.createElement("button");b.className=`small ${x.done?"done":""}`;b.textContent=x.done?"できた！":"できた";b.onclick=()=>{let all=bonus(),z=all.find(y=>y.id===x.id);if(z)z.done=!z.done;write(bonusKey(),all);saveHistory();render()};r.appendChild(b);$("bonusList").appendChild(r)});
-let aa=awards().filter(x=>x.child===current);$("awardBox").classList.toggle("hidden",!aa.length);$("awardList").innerHTML=aa.map(x=>`<div class="row"><strong>🏅 ${x.text}</strong></div>`).join("");
-saveHistory();summary()
-}
-document.querySelectorAll(".tab[data-child]").forEach(b=>b.onclick=()=>{current=b.dataset.child;localStorage.setItem("sc_current_child",current);$("missionView").classList.remove("hidden");$("calendarView").classList.add("hidden");document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");render()});
-$("calTab").onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));$("calTab").classList.add("active");$("missionView").classList.add("hidden");$("calendarView").classList.remove("hidden");renderCalendar()};
-$("reroll").onclick=()=>{if(confirm("きょうの ミッションを えらびなおしますか？")){write(taskKey(current),makeTasks(current));localStorage.removeItem(doneKey(current));saveHistory();render()}};
-$("reset").onclick=()=>{if(confirm("チェックを ぜんぶ もどしますか？")){localStorage.removeItem(doneKey(current));saveHistory();render()}};
-$("parentOpen").onclick=()=>{$("parentDialog").showModal();$("login").classList.remove("hidden");$("parentPane").classList.add("hidden");$("pin").value="";$("pinError").textContent=""};
-$("loginBtn").onclick=()=>{if($("pin").value===PIN){$("login").classList.add("hidden");$("parentPane").classList.remove("hidden");summary()}else $("pinError").textContent="あいことばが ちがいます。"};
-$("addBonus").onclick=()=>{let text=$("bonusText").value.trim();if(!text)return;let a=bonus();a.push({id:String(Date.now()),child:$("bonusChild").value,text,done:false});write(bonusKey(),a);$("bonusText").value="";saveHistory();render()};
-$("addAward").onclick=()=>{let a=awards();a.push({id:String(Date.now()),child:$("awardChild").value,text:$("awardText").value});write(awardKey(),a);saveHistory();render()};
-function summary(){$("summary").innerHTML=`<p>🌸 ひなね：${prog("hinane")}/10</p><p>🫧 おとね：${prog("otone")}/6</p><p>👶 すずね：${prog("suzune")}/4</p><p><strong>かぞく：${total()}/20</strong></p>`}
-$("prev").onclick=()=>{cursor=new Date(cursor.getFullYear(),cursor.getMonth()-1,1);renderCalendar()};$("next").onclick=()=>{cursor=new Date(cursor.getFullYear(),cursor.getMonth()+1,1);renderCalendar()};
-function renderCalendar(){let y=cursor.getFullYear(),m=cursor.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),h=read("sc21_history",{});$("monthTitle").textContent=`${y}ねん ${m+1}がつ`;$("calendar").innerHTML="";for(let i=0;i<first;i++){let z=document.createElement("div");z.className="day blank";$("calendar").appendChild(z)}for(let d=1;d<=days;d++){let k=dateKey(new Date(y,m,d)),x=h[k],b=document.createElement("button");b.className="day";if(k===TK)b.classList.add("today");let n=x?(x.hinane.done+x.otone.done+x.suzune.done):0;if(n===20)b.classList.add("full");else if(n)b.classList.add("some");b.innerHTML=`<strong>${d}</strong><span class="marks">${n===20?"🎉":n?`${n}/20`:""}</span>`;b.onclick=()=>detail(k,x);$("calendar").appendChild(b)}}
-function detail(k,h){let [,m,d]=k.split("-");if(!h){$("detail").innerHTML=`<h3>${Number(m)}がつ ${Number(d)}にち</h3><p>まだ きろくが ありません。</p>`;return}let lis=c=>{let ids=new Set(h[c].doneIds||[]);return (h[c].tasks||[]).filter(x=>ids.has(x.id)).map(x=>`<li>${x.emoji} ${x.text}</li>`).join("")||"<li>なし</li>"};$("detail").innerHTML=`<h3>${Number(m)}がつ ${Number(d)}にち</h3><h4>🌸 ひなね ${h.hinane.done}/10</h4><ul>${lis("hinane")}</ul><h4>🫧 おとね ${h.otone.done}/6</h4><ul>${lis("otone")}</ul><h4>👶 すずね ${h.suzune.done}/4</h4><ul>${lis("suzune")}</ul>`}
-function burst(){let c=$("confetti"),x=c.getContext("2d"),r=devicePixelRatio||1;c.width=innerWidth*r;c.height=innerHeight*r;x.scale(r,r);let colors=["#ff7f96","#68baf1","#ffd85d","#7bd184","#ad8cf4"],p=Array.from({length:120},()=>({x:innerWidth/2,y:innerHeight*.25,vx:(Math.random()-.5)*12,vy:-4-Math.random()*8,g:.26,s:4+Math.random()*6,c:colors[Math.floor(Math.random()*colors.length)]})),f=0;(function go(){x.clearRect(0,0,innerWidth,innerHeight);p.forEach(q=>{q.vy+=q.g;q.x+=q.vx;q.y+=q.vy;x.fillStyle=q.c;x.fillRect(q.x,q.y,q.s,q.s)});if(f++<150)requestAnimationFrame(go)})()}
-if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js"));
-render();
-</script>
-</body></html>
+
+<div class="stamp-popup hidden" id="stampPopup">
+  <div class="stamp-popup-card">
+    <div class="stamp-big" id="stampPopupEmoji">⭐</div>
+    <h2>スタンプ ゲット！</h2>
+    <p id="stampPopupName"></p>
+    <button id="stampPopupClose">やったー！</button>
+  </div>
+</div>
+
+<dialog id="parentDialog">
+  <form method="dialog" class="dialog">
+    <button class="close" value="cancel">✕</button>
+    <div id="loginPane">
+      <h2>🔒 パパ・ママモード</h2>
+      <input id="pin" type="password" inputmode="numeric" maxlength="6" placeholder="あいことば">
+      <button type="button" class="primary" id="loginBtn">はいる</button>
+      <p class="error" id="pinError"></p>
+    </div>
+
+    <div id="parentPane" class="hidden">
+      <h2>👨‍👩‍👧 パパ・ママモード</h2>
+
+      <section class="psec">
+        <h3>🌟 ミッションを ついか</h3>
+        <label>だれに？
+          <select id="bonusChild">
+            <option value="hinane">ひなね</option>
+            <option value="otone">おとね</option>
+            <option value="suzune">すずね</option>
+          </select>
+        </label>
+        <label>ミッション
+          <input id="bonusText" placeholder="れい：くつを そろえる">
+        </label>
+        <button type="button" class="primary" id="addBonus">ついかする</button>
+      </section>
+
+      <section class="psec">
+        <h3>🏅 とくべつしょう</h3>
+        <label>だれに？
+          <select id="awardChild">
+            <option value="hinane">ひなね</option>
+            <option value="otone">おとね</option>
+            <option value="suzune">すずね</option>
+          </select>
+        </label>
+        <label>しょう
+          <select id="awardText">
+            <option>やさしく できたで しょう</option>
+            <option>おてつだいを がんばったで しょう</option>
+            <option>あきらめずに がんばったで しょう</option>
+            <option>にこにこ できたで しょう</option>
+          </select>
+        </label>
+        <button type="button" class="primary" id="addAward">おくる</button>
+      </section>
+
+      <section class="psec">
+        <h3>💰 おさいふ</h3>
+        <p class="tiny">つかったときだけ へらします</p>
+        <label>だれ？
+          <select id="walletChild">
+            <option value="hinane">ひなね</option>
+            <option value="otone">おとね</option>
+          </select>
+        </label>
+        <label>つかった きんがく
+          <input id="walletSpend" type="number" min="0" step="10" placeholder="10">
+        </label>
+        <button type="button" class="primary" id="spendWallet">おさいふから へらす</button>
+      </section>
+
+      <section class="psec">
+        <h3>📒 きょうの きろく</h3>
+        <div id="summary"></div>
+      </section>
+    </div>
+  </form>
+</dialog>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
